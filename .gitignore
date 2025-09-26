@@ -1,0 +1,59 @@
+# === DOCUMENTATION-ONLY REPOSITORY ===
+# Only documentation files will be committed to GitHub
+# Source code stays local for security
+
+# Sensitive Files - DO NOT COMMIT
+*.env*
+.dev.vars
+wrangler.toml
+*.key
+*.pem
+*.p12
+
+# API Keys and Secrets (Extra protection)
+**/GROQ_API_KEY*
+**/GEMINI_API_KEY*
+**/OPENROUTER_API_KEY*
+
+# Source Code - Keep Local Only
+/src/
+/functions/
+/public/
+/sppg-smart-dashboard/
+
+# Build and Cache
+node_modules/
+.wrangler/
+dist/
+build/
+.cache/
+.vite/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Dependencies
+package-lock.json
+yarn.lock
+*.tgz
+
+# Deployment Scripts (contain sensitive info)
+deploy*.ps1
+deploy*.sh
+sync-build.ps1
+test-*.js
+
+# OS Generated
+.DS_Store
+Thumbs.db
+*.swp
+*~
+
+# === ALLOW DOCUMENTATION ONLY ===
+# These files will be committed:
+!/README.md
+!/TECHNICAL_DOCUMENTATION.md
+!/DEPLOYMENT_GUIDE.md
+!/GROQ_MIGRATION_SUMMARY.md
+!/SINGLE_ENDPOINT_SUMMARY.md
+!/docs/
