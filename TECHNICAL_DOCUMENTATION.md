@@ -2,14 +2,14 @@
 
 ## 🎯 Project Overview
 
-**Project Name**: Inovasi Generatif AI untuk Program Makanan Bergizi Gratis (MBG)  
-**URL Live**: https://llama-mbg.pages.dev  
+**Project Name**: Inovasi Generatif AI untuk Program Makanan Bergizi Gratis (MBG)  dengan Llama
+**URL Live**: https://llama-mbg.andikaprasetia.id
 **Repository**: sppg-smart-dashboard  
 **Deployment Platform**: Cloudflare Pages  
 **AI Provider**: Groq API (Llama-3.1-8b-instant)
 
 ### 🎪 Mission Statement
-Mencetak Generasi Emas melalui revolusi gizi berbasis Generatif AI - bukan hanya memberi makan, tapi menutrisi dengan cerdas untuk membangun gerakan Generasi Emas Indonesia yang sehat, cerdas, dan berkarakter.
+Mencetak Generasi Emas melalui revolusi gizi berbasis Generatif AI Llama - bukan hanya memberi makan, tapi menutrisi dengan cerdas untuk membangun gerakan Generasi Emas Indonesia yang sehat, cerdas, dan berkarakter.
 
 ---
 
@@ -42,7 +42,6 @@ Mencetak Generasi Emas melalui revolusi gizi berbasis Generatif AI - bukan hanya
 ### 🔧 Technology Stack
 
 #### **Frontend Technologies:**
-- **Static HTML/CSS/JS**: Landing pages dengan template Agrion
 - **ReactJS + TypeScript**: SPPG Smart Dashboard (SPA)
 - **Vite**: Build tool untuk React application
 - **TailwindCSS**: Utility-first CSS framework
@@ -69,14 +68,14 @@ Mencetak Generasi Emas melalui revolusi gizi berbasis Generatif AI - bukan hanya
 #### **1. Main Landing Page (`/index.html`)**
 ```
 Features:
-├── Hero Section (Slider dengan 3 slides)
+├── Hero Section 
 ├── About Section (Program MBG overview)
-├── Inovasi Section (3 main products)
-├── Tagline Section (Mission statement)
-├── Target Section (Beneficiaries carousel)
-├── Team Section (Development team)
-├── Organized Section (Brands/sponsors)
-└── Footer (Contact & links)
+├── Inovasi Section 
+├── Tagline Section 
+├── Target Section
+├── Team Section 
+├── Organized Section 
+└── Footer
 
 PWA Features:
 ├── Service Worker registration
@@ -350,52 +349,6 @@ Berikan insight dan rekomendasi berdasarkan data KPI yang diberikan.
 
 ---
 
-## 🔧 Technical Implementation
-
-### 📁 File Structure
-```
-llama-mbg/
-├── 📂 public/                          # Static assets & pages
-│   ├── 📄 index.html                   # Landing page
-│   ├── 📄 pawon-ai.html               # AI menu planner
-│   ├── 📄 ai-menu.html                # Recipe generator  
-│   ├── 📄 rapor-gizi.html             # Nutrition reports
-│   ├── 📄 chatbot.html                # AI chatbot
-│   ├── 📄 asisten-mitra-mbg.html      # Assistant page
-│   ├── 📄 offline.html                # PWA offline page
-│   ├── 📄 sw.js                       # Service worker
-│   ├── 📂 assets/                     # Static resources
-│   │   ├── 📂 css/                    # Stylesheets
-│   │   ├── 📂 js/                     # JavaScript files
-│   │   ├── 📂 images/                 # Image assets
-│   │   └── 📂 vendors/                # Third-party libraries
-│   ├── 📂 config/                     # PHP configurations
-│   ├── 📂 sppg-smart-dashboard/       # React app build
-│   └── 📂 video/                      # Video demo pages
-│
-├── 📂 functions/                       # Serverless functions
-│   └── 📄 groq.js                     # Unified AI handler
-│
-├── 📂 src/                            # Source code (Workers)
-│   ├── 📄 index.js                    # Main router
-│   └── 📄 groq.js                     # AI function handler
-│
-├── 📂 sppg-smart-dashboard/           # React source
-│   ├── 📄 App.tsx                     # Main app component
-│   ├── 📄 index.tsx                   # App entry point
-│   ├── 📄 types.ts                    # TypeScript definitions
-│   ├── 📄 vite.config.ts              # Build configuration
-│   ├── 📂 components/                 # React components
-│   ├── 📂 data/                       # Mock data
-│   ├── 📂 services/                   # API services
-│   └── 📂 public/                     # Public assets
-│
-├── 📄 wrangler.toml                   # Cloudflare config
-├── 📄 package.json                    # Dependencies
-├── 📄 deploy-clean.ps1                # Deployment script
-├── 📄 sync-build.ps1                  # Build sync script
-└── 📄 README.md                       # Project documentation
-```
 
 ### ⚙️ Configuration Files
 
@@ -463,66 +416,7 @@ export default defineConfig({
 })
 ```
 
-### 🚀 Deployment Process
 
-#### **Automated Deployment Script** (`deploy-clean.ps1`):
-```powershell
-# Script untuk deployment ke Cloudflare Pages (llama-mbg.pages.dev)
-# Menggunakan Groq API dengan model Llama-3.1-8b-instant untuk semua AI functions
-# Pastikan wrangler CLI sudah terinstall dan login
-
-Write-Host "Deploying to llama-mbg.pages.dev (powered by Groq)..." -ForegroundColor Green
-
-# Check if wrangler is installed
-if (!(Get-Command "wrangler" -ErrorAction SilentlyContinue)) {
-    Write-Host "Wrangler CLI not found. Please install it first:" -ForegroundColor Red
-    Write-Host "npm install -g wrangler" -ForegroundColor Yellow
-    exit 1
-}
-
-# Check if user is logged in
-try {
-    wrangler whoami | Out-Null
-} catch {
-    Write-Host "Not logged in to Cloudflare. Please login first:" -ForegroundColor Red
-    Write-Host "wrangler login" -ForegroundColor Yellow
-    exit 1
-}
-
-# Sync build ReactJS terbaru ke folder public (opsional)
-Write-Host "Checking for updated ReactJS build..." -ForegroundColor Blue
-if (Test-Path "sppg-smart-dashboard\dist") {
-    Write-Host "Found ReactJS build in dist folder" -ForegroundColor Green
-    Write-Host "Tip: Copy latest build to public/sppg-smart-dashboard/ if needed" -ForegroundColor Yellow
-}
-
-# Deploy to Cloudflare Pages
-Write-Host "Deploying to Cloudflare Pages..." -ForegroundColor Blue
-wrangler pages deploy public --project-name=llama-mbg
-
-Write-Host "Deployment complete!" -ForegroundColor Green
-Write-Host ""
-Write-Host "Your website is now live at:" -ForegroundColor Cyan
-Write-Host "   https://llama-mbg.pages.dev" -ForegroundColor White
-Write-Host ""
-Write-Host "Available Pages:" -ForegroundColor Cyan
-Write-Host "   Main Landing: https://llama-mbg.pages.dev"
-Write-Host "   SPPG Dashboard: https://llama-mbg.pages.dev/sppg-smart-dashboard/"
-Write-Host "   AI Menu: https://llama-mbg.pages.dev/ai-menu.html"
-Write-Host "   Pawon AI: https://llama-mbg.pages.dev/pawon-ai.html"
-Write-Host ""
-Write-Host "AI Functions (Single endpoint powered by Groq Llama-3.1-8b-instant):" -ForegroundColor Yellow
-Write-Host "   /functions/groq - Unified AI API (recipes, menu, insights)"
-Write-Host "   Compatible with: /functions/gemini & /functions/openrouter (legacy)"
-Write-Host ""
-Write-Host "To update ReactJS build:" -ForegroundColor Yellow
-Write-Host "   1. cd sppg-smart-dashboard"
-Write-Host "   2. npm run build"
-Write-Host "   3. Copy dist/* to public/sppg-smart-dashboard/"
-Write-Host "   4. Run this deployment script again"
-```
-
----
 
 ## 🔒 Security & Performance
 
@@ -589,99 +483,6 @@ Uptime & Reliability:
 
 ---
 
-## 🌱 Progressive Web App (PWA)
-
-### 📱 PWA Features
-
-#### **Service Worker Implementation:**
-```javascript
-// sw.js - Core PWA functionality
-const CACHE_NAME = 'llama-mbg-v1';
-const urlsToCache = [
-  '/',
-  '/index.html',
-  '/pawon-ai.html',
-  '/ai-menu.html',
-  '/assets/css/agrion.css',
-  '/assets/js/agrion.js',
-  // ... other critical resources
-];
-
-// Install event
-self.addEventListener('install', (event) => {
-  event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then((cache) => cache.addAll(urlsToCache))
-  );
-});
-
-// Fetch event with network-first strategy for API calls
-self.addEventListener('fetch', (event) => {
-  if (event.request.url.includes('/functions/')) {
-    // Network-first for API calls
-    event.respondWith(
-      fetch(event.request)
-        .catch(() => caches.match('/offline.html'))
-    );
-  } else {
-    // Cache-first for static assets
-    event.respondWith(
-      caches.match(event.request)
-        .then((response) => response || fetch(event.request))
-    );
-  }
-});
-```
-
-#### **Manifest Configuration:**
-```json
-{
-  "name": "Inovasi Gen AI MBG",
-  "short_name": "AI MBG",
-  "description": "Mencetak Generasi Emas Melalui Generatif AI",
-  "start_url": "/",
-  "display": "standalone",
-  "background_color": "#1f6306",
-  "theme_color": "#1f6306",
-  "icons": [
-    {
-      "src": "assets/images/favicons/android-chrome-192x192.png",
-      "sizes": "192x192",
-      "type": "image/png"
-    },
-    {
-      "src": "assets/images/favicons/android-chrome-512x512.png",
-      "sizes": "512x512",
-      "type": "image/png"
-    }
-  ]
-}
-```
-
-#### **Install Prompt:**
-```javascript
-// PWA Install Prompt Implementation
-let deferredPrompt;
-window.addEventListener('beforeinstallprompt', (e) => {
-  e.preventDefault();
-  deferredPrompt = e;
-  showInstallButton();
-});
-
-function showInstallButton() {
-  const installBtn = document.createElement('button');
-  installBtn.innerHTML = '📱 Install App';
-  installBtn.addEventListener('click', async () => {
-    deferredPrompt.prompt();
-    const { outcome } = await deferredPrompt.userChoice;
-    deferredPrompt = null;
-    installBtn.remove();
-  });
-  document.body.appendChild(installBtn);
-}
-```
-
----
 
 ## 📈 Analytics & Monitoring
 
