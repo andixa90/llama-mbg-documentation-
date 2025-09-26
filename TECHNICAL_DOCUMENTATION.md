@@ -4,7 +4,7 @@
 
 **Project Name**: Inovasi Generatif AI untuk Program Makanan Bergizi Gratis (MBG)  dengan Llama
 **URL Live**: https://llama-mbg.andikaprasetia.id
-**Repository**: sppg-smart-dashboard  
+**Repository**: llama-mbg-documentation
 **Deployment Platform**: Cloudflare Pages  
 **AI Provider**: Groq API (Llama-3.1-8b-instant)
 
