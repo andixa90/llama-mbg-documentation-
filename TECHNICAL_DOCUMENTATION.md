@@ -2,11 +2,11 @@
 
 ## 🎯 Project Overview
 
-**Project Name**: Inovasi Generatif AI untuk Program Makanan Bergizi Gratis (MBG)  dengan Llama
-**URL Live**: https://llama-mbg.andikaprasetia.id
-**Repository**: llama-mbg-documentation
-**Deployment Platform**: Cloudflare Pages
-**AI Provider**: Groq API (Llama-3.1-8b-instant)
+**Project Name**: Inovasi Generatif AI untuk Program Makanan Bergizi Gratis (MBG)  dengan Llama  
+**URL Live**: https://llama-mbg.andikaprasetia.id  
+**Repository**: llama-mbg-documentation  
+**Deployment Platform**: Cloudflare Pages  
+**AI Provider**: Groq API (Llama-3.1-8b-instant)  
 
 ### 🎪 Mission Statement
 Mencetak Generasi Emas melalui revolusi gizi berbasis Generatif AI Llama - bukan hanya memberi makan, tapi menutrisi dengan cerdas untuk membangun gerakan Generasi Emas Indonesia yang sehat, cerdas, dan berkarakter.
