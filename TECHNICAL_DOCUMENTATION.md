@@ -167,8 +167,6 @@ Planned Features:
 ```javascript
 // All AI functions unified under one endpoint
 /functions/groq → Groq API (Primary)
-/functions/gemini → Routes to Groq (Legacy compatibility)
-/functions/openrouter → Routes to Groq (Legacy compatibility)
 ```
 
 #### **API Configuration:**
